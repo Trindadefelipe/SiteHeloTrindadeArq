@@ -1,7 +1,7 @@
 export interface Projeto {
   id: string;
   nome: string;
-  categoria: "casa" | "apartamento" | "comercial" | "corporativo";
+  categoria: "casa" | "apartamento" | "comercial" | "interiores";
   capa: string;
   destaque: string;
   galeria: string[];
@@ -11,77 +11,72 @@ export interface Projeto {
   ano?: string;
 }
 
+function gerarGaleria(pasta: string, quantidade: number): string[] {
+  return Array.from({ length: quantidade }, (_, i) => `/images/projetos/${pasta}/${i + 1}.jpg`);
+}
+
 export const projetos: Projeto[] = [
   {
-    id: "casa-jr",
-    nome: "Casa J|R",
-    categoria: "casa",
-    capa: "/images/projetos/placeholder.jpg",
-    destaque: "/images/projetos/placeholder.jpg",
-    galeria: [],
-    descricao: "Projeto residencial com foco em integração dos ambientes e iluminação natural.",
-    localizacao: "São Paulo, SP",
-    metragem: "280m²",
-    ano: "2025",
-  },
-  {
-    id: "apto-ms",
-    nome: "Apartamento M|S",
-    categoria: "apartamento",
-    capa: "/images/projetos/placeholder.jpg",
-    destaque: "/images/projetos/placeholder.jpg",
-    galeria: [],
-    descricao: "Reforma completa com design contemporâneo e aproveitamento inteligente de espaço.",
-    localizacao: "São Paulo, SP",
-    metragem: "120m²",
-    ano: "2025",
-  },
-  {
-    id: "casa-lp",
-    nome: "Casa L|P",
-    categoria: "casa",
-    capa: "/images/projetos/placeholder.jpg",
-    destaque: "/images/projetos/placeholder.jpg",
-    galeria: [],
-    descricao: "Residência de campo com arquitetura integrada à paisagem.",
-    localizacao: "Campinas, SP",
-    metragem: "350m²",
-    ano: "2024",
-  },
-  {
-    id: "comercial-av",
-    nome: "Espaço A|V",
+    id: "loja-vera-guirro",
+    nome: "Loja Vera Guirro",
     categoria: "comercial",
-    capa: "/images/projetos/placeholder.jpg",
-    destaque: "/images/projetos/placeholder.jpg",
-    galeria: [],
-    descricao: "Projeto comercial com identidade visual integrada ao espaço físico.",
-    localizacao: "São Paulo, SP",
-    metragem: "180m²",
-    ano: "2024",
+    capa: "/images/projetos/loja-vera-guirro/1.jpg",
+    destaque: "/images/projetos/loja-vera-guirro/2.jpg",
+    galeria: gerarGaleria("loja-vera-guirro", 11),
+    descricao: "Projeto comercial para loja com design sofisticado e identidade visual integrada ao espaço.",
   },
   {
-    id: "apto-rc",
-    nome: "Apartamento R|C",
-    categoria: "apartamento",
-    capa: "/images/projetos/placeholder.jpg",
-    destaque: "/images/projetos/placeholder.jpg",
-    galeria: [],
-    descricao: "Apartamento compacto com soluções criativas de marcenaria.",
-    localizacao: "São Paulo, SP",
-    metragem: "65m²",
-    ano: "2024",
+    id: "clinica-jr",
+    nome: "Clínica J&R",
+    categoria: "comercial",
+    capa: "/images/projetos/clinica-jr/1.jpg",
+    destaque: "/images/projetos/clinica-jr/2.jpg",
+    galeria: gerarGaleria("clinica-jr", 20),
+    descricao: "Clínica ginecológica com ambiente acolhedor e funcional, priorizando o conforto dos pacientes.",
   },
   {
-    id: "casa-fm",
-    nome: "Casa F|M",
-    categoria: "casa",
-    capa: "/images/projetos/placeholder.jpg",
-    destaque: "/images/projetos/placeholder.jpg",
-    galeria: [],
-    descricao: "Casa térrea com pé-direito duplo e materiais naturais.",
-    localizacao: "Sorocaba, SP",
-    metragem: "220m²",
-    ano: "2023",
+    id: "clinica-pm",
+    nome: "Clínica PM",
+    categoria: "comercial",
+    capa: "/images/projetos/clinica-pm/1.jpg",
+    destaque: "/images/projetos/clinica-pm/2.jpg",
+    galeria: gerarGaleria("clinica-pm", 26),
+    descricao: "Projeto de clínica com foco em funcionalidade e estética contemporânea.",
+  },
+  {
+    id: "escritorio-ht",
+    nome: "Escritório HT",
+    categoria: "comercial",
+    capa: "/images/projetos/escritorio-ht/1.jpg",
+    destaque: "/images/projetos/escritorio-ht/2.jpg",
+    galeria: gerarGaleria("escritorio-ht", 9),
+    descricao: "Escritório da Helo Trindade Arquitetura, projetado para refletir a identidade do próprio escritório.",
+  },
+  {
+    id: "gt-engenharia",
+    nome: "GT Engenharia",
+    categoria: "comercial",
+    capa: "/images/projetos/gt-engenharia/1.jpg",
+    destaque: "/images/projetos/gt-engenharia/2.jpg",
+    galeria: gerarGaleria("gt-engenharia", 13),
+    descricao: "Projeto corporativo para escritório de engenharia com design profissional e moderno.",
+  },
+  {
+    id: "epic",
+    nome: "Projeto EPIC",
+    categoria: "interiores",
+    capa: "/images/projetos/epic/1.jpg",
+    destaque: "/images/projetos/epic/2.jpg",
+    galeria: gerarGaleria("epic", 9),
+    descricao: "Projeto de interiores para apartamento no edifício EPIC, com design contemporâneo e elegante.",
+  },
+  {
+    id: "la-torre",
+    nome: "Projeto La Torre",
+    categoria: "interiores",
+    capa: "/images/projetos/la-torre/1.jpg",
+    destaque: "/images/projetos/la-torre/2.jpg",
+    galeria: gerarGaleria("la-torre", 30),
+    descricao: "Projeto de interiores para apartamento no La Torre, com ambientes integrados e acabamentos refinados.",
   },
 ];

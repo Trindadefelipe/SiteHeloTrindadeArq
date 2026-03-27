@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -45,13 +46,14 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-20">
         {/* Logo */}
         <Link href="/" className="z-50">
-          <h1
-            className={`font-[family-name:var(--font-heading)] text-2xl md:text-3xl tracking-wider transition-colors duration-500 ${
-              scrolled || menuOpen ? "text-foreground" : "text-white"
-            }`}
-          >
-            HELO TRINDADE
-          </h1>
+          <Image
+            src={scrolled || menuOpen ? "/images/logo/logo-preta.png" : "/images/logo/logo-branca.png"}
+            alt="Helo Trindade Arquitetura"
+            width={60}
+            height={60}
+            className="w-12 h-12 md:w-14 md:h-14 transition-opacity duration-500"
+            priority
+          />
         </Link>
 
         {/* Menu Desktop */}

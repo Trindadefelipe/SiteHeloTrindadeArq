@@ -2,14 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { projetos, type Projeto } from "@/data/projetos";
 
 const categorias = [
   { label: "Todos", value: "todos" },
-  { label: "Casa", value: "casa" },
-  { label: "Apartamento", value: "apartamento" },
   { label: "Comercial", value: "comercial" },
-  { label: "Corporativo", value: "corporativo" },
+  { label: "Interiores", value: "interiores" },
 ] as const;
 
 function categoriaLabel(cat: Projeto["categoria"]): string {
@@ -17,7 +16,7 @@ function categoriaLabel(cat: Projeto["categoria"]): string {
     casa: "Casa",
     apartamento: "Apartamento",
     comercial: "Comercial",
-    corporativo: "Corporativo",
+    interiores: "Interiores",
   };
   return map[cat];
 }
@@ -38,7 +37,7 @@ export default function PortfolioPage() {
           Portfolio
         </h1>
         <p className="mt-4 text-muted font-[family-name:var(--font-body)] text-sm md:text-base max-w-xl tracking-wide">
-          Uma sele&ccedil;&atilde;o de projetos que refletem nosso compromisso com design, funcionalidade e bem-estar.
+          Uma seleção de projetos que refletem nosso compromisso com design, funcionalidade e bem-estar.
         </p>
       </section>
 
@@ -75,7 +74,15 @@ export default function PortfolioPage() {
               className="group block transition-opacity duration-500 ease-in-out"
             >
               {/* Card */}
-              <div className="relative aspect-square bg-gray-300 overflow-hidden">
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src={projeto.capa}
+                  alt={projeto.nome}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+
                 {/* Overlay no hover */}
                 <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/60 transition-all duration-500 flex items-end p-6">
                   <div className="translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">

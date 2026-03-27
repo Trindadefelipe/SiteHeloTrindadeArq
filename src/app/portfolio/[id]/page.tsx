@@ -1,6 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
 import { projetos } from "@/data/projetos";
-import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
   return projetos.map((projeto) => ({
@@ -13,7 +13,7 @@ function categoriaLabel(cat: string): string {
     casa: "Casa",
     apartamento: "Apartamento",
     comercial: "Comercial",
-    corporativo: "Corporativo",
+    interiores: "Interiores",
   };
   return map[cat] || cat;
 }
@@ -31,10 +31,10 @@ export default async function ProjetoPage({
     return (
       <main className="min-h-screen flex flex-col items-center justify-center px-6">
         <h1 className="font-[family-name:var(--font-heading)] text-3xl md:text-4xl text-foreground mb-4">
-          Projeto n&atilde;o encontrado
+          Projeto não encontrado
         </h1>
         <p className="text-muted font-[family-name:var(--font-body)] text-sm mb-8">
-          O projeto que voc&ecirc; procura n&atilde;o existe ou foi removido.
+          O projeto que você procura não existe ou foi removido.
         </p>
         <Link
           href="/portfolio"
@@ -50,12 +50,19 @@ export default async function ProjetoPage({
   const proximoProjeto =
     projetoIndex < projetos.length - 1 ? projetos[projetoIndex + 1] : null;
 
-  const galeriaPlaceholders = [0, 1, 2, 3, 4, 5];
-
   return (
     <main className="min-h-screen">
-      {/* Hero placeholder */}
-      <div className="w-full h-[60vh] bg-gray-400" />
+      {/* Hero */}
+      <div className="relative w-full h-[60vh]">
+        <Image
+          src={projeto.destaque}
+          alt={projeto.nome}
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+      </div>
 
       {/* Conteudo do projeto */}
       <section className="px-6 md:px-12 lg:px-24 py-16 md:py-24">
@@ -65,7 +72,7 @@ export default async function ProjetoPage({
             href="/portfolio"
             className="font-[family-name:var(--font-body)] text-xs tracking-widest uppercase text-muted hover:text-foreground transition-colors duration-300"
           >
-            &larr; Portfolio
+            ← Portfolio
           </Link>
         </div>
 
@@ -84,7 +91,7 @@ export default async function ProjetoPage({
           {projeto.localizacao && (
             <div>
               <p className="font-[family-name:var(--font-body)] text-xs tracking-widest uppercase text-muted mb-2">
-                Localiza&ccedil;&atilde;o
+                Localização
               </p>
               <p className="font-[family-name:var(--font-body)] text-sm text-foreground">
                 {projeto.localizacao}
@@ -133,19 +140,22 @@ export default async function ProjetoPage({
           </div>
         )}
 
-        {/* Galeria placeholder */}
+        {/* Galeria */}
         <div className="mb-24">
           <h2 className="font-[family-name:var(--font-heading)] text-2xl md:text-3xl text-foreground mb-8">
             Galeria
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {galeriaPlaceholders.map((i) => (
-              <div
-                key={i}
-                className={`aspect-[4/3] ${
-                  i % 2 === 0 ? "bg-gray-200" : "bg-gray-300"
-                }`}
-              />
+            {projeto.galeria.map((foto, i) => (
+              <div key={i} className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={foto}
+                  alt={`${projeto.nome} - Foto ${i + 1}`}
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -159,7 +169,7 @@ export default async function ProjetoPage({
                 className="group inline-flex flex-col"
               >
                 <span className="font-[family-name:var(--font-body)] text-xs tracking-widest uppercase text-muted group-hover:text-foreground transition-colors duration-300">
-                  &larr; Projeto Anterior
+                  ← Projeto Anterior
                 </span>
                 <span className="font-[family-name:var(--font-heading)] text-lg text-foreground mt-1">
                   {projetoAnterior.nome}
@@ -176,7 +186,7 @@ export default async function ProjetoPage({
                 className="group inline-flex flex-col items-end"
               >
                 <span className="font-[family-name:var(--font-body)] text-xs tracking-widest uppercase text-muted group-hover:text-foreground transition-colors duration-300">
-                  Pr&oacute;ximo Projeto &rarr;
+                  Próximo Projeto →
                 </span>
                 <span className="font-[family-name:var(--font-heading)] text-lg text-foreground mt-1">
                   {proximoProjeto.nome}

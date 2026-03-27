@@ -1,33 +1,16 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 
 const slides = [
-  {
-    bg: "bg-gray-800",
-    titulo: "Helo Trindade",
-    subtitulo: "Arquitetura",
-  },
-  {
-    bg: "bg-gray-700",
-    titulo: "Funcionalidade",
-    subtitulo: "Espaços que fazem sentido",
-  },
-  {
-    bg: "bg-gray-600",
-    titulo: "Estética",
-    subtitulo: "Beleza em cada detalhe",
-  },
-  {
-    bg: "bg-gray-500",
-    titulo: "Bem-Estar",
-    subtitulo: "Ambientes que acolhem",
-  },
-  {
-    bg: "bg-gray-900",
-    titulo: "Projetos",
-    subtitulo: "Transformando ideias em espaços",
-  },
+  { image: "/images/hero/hero-1.jpg" },
+  { image: "/images/hero/hero-2.jpg" },
+  { image: "/images/hero/hero-3.jpg" },
+  { image: "/images/hero/hero-4.jpg" },
+  { image: "/images/hero/hero-5.jpg" },
+  { image: "/images/hero/hero-6.jpg" },
+  { image: "/images/hero/hero-7.jpg" },
 ];
 
 export default function HeroCarousel() {
@@ -62,23 +45,17 @@ export default function HeroCarousel() {
             index === current ? "opacity-100" : "opacity-0"
           }`}
         >
-          {/* Fundo placeholder */}
-          <div className={`absolute inset-0 ${slide.bg}`} />
+          <Image
+            src={slide.image}
+            alt={`Projeto Helo Trindade ${index + 1}`}
+            fill
+            className="object-cover"
+            priority={index === 0}
+            sizes="100vw"
+          />
 
           {/* Overlay escuro */}
           <div className="absolute inset-0 bg-black/30" />
-
-          {/* Conteudo */}
-          <div className="relative z-10 flex h-full items-center justify-center text-center text-white">
-            <div>
-              <h1 className="font-[family-name:var(--font-heading)] text-5xl tracking-wide md:text-7xl lg:text-8xl mb-4">
-                {slide.titulo}
-              </h1>
-              <p className="text-sm tracking-[0.3em] uppercase font-light md:text-base">
-                {slide.subtitulo}
-              </p>
-            </div>
-          </div>
         </div>
       ))}
 

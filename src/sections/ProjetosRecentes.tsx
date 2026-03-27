@@ -1,21 +1,13 @@
 import Link from "next/link";
+import Image from "next/image";
 import { projetos } from "@/data/projetos";
 
 const categoriaLabel: Record<string, string> = {
   casa: "Residencial",
   apartamento: "Apartamento",
   comercial: "Comercial",
-  corporativo: "Corporativo",
+  interiores: "Interiores",
 };
-
-const placeholderBgs = [
-  "bg-gray-300",
-  "bg-gray-400",
-  "bg-gray-350",
-  "bg-gray-300",
-  "bg-gray-400",
-  "bg-gray-350",
-];
 
 export default function ProjetosRecentes() {
   return (
@@ -31,16 +23,18 @@ export default function ProjetosRecentes() {
 
         {/* Grid de projetos */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {projetos.map((projeto, index) => (
-            <div
+          {projetos.slice(0, 6).map((projeto) => (
+            <Link
               key={projeto.id}
-              className="group relative aspect-[4/5] overflow-hidden cursor-pointer"
+              href={`/portfolio/${projeto.id}`}
+              className="group relative aspect-[4/5] overflow-hidden cursor-pointer block"
             >
-              {/* Fundo placeholder */}
-              <div
-                className={`absolute inset-0 ${
-                  placeholderBgs[index % placeholderBgs.length]
-                } transition-transform duration-700 ease-out group-hover:scale-105`}
+              <Image
+                src={projeto.capa}
+                alt={projeto.nome}
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
 
               {/* Overlay hover */}
@@ -54,13 +48,8 @@ export default function ProjetosRecentes() {
                 <h3 className="font-[family-name:var(--font-heading)] text-2xl tracking-wide md:text-3xl">
                   {projeto.nome}
                 </h3>
-                {projeto.localizacao && (
-                  <span className="mt-2 text-xs text-white/70 font-[family-name:var(--font-body)]">
-                    {projeto.localizacao}
-                  </span>
-                )}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
