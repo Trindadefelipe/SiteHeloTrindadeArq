@@ -1,6 +1,6 @@
 # Plano de Desenvolvimento — Site Helo Trindade Arquitetura
 
-**Stack:** Next.js 14 (App Router) + TypeScript + Tailwind CSS
+**Stack:** Next.js 16 (App Router) + TypeScript + Tailwind CSS v4
 **Referência:** dudiduarte.com.br
 **Estilo:** Minimalista, monocromático, fotografia como protagonista
 
@@ -20,44 +20,44 @@
 
 ## Fase 2 — Layout Base
 
-- [ ] 2.1 Criar componente `Header`
+- [x] 2.1 Criar componente `Header`
   - Logo à esquerda
   - Menu de navegação à direita (Home, Sobre, Time Helo, Portfolio, Contato)
   - Fundo transparente que transiciona para sólido ao scroll
   - Menu hambúrguer no mobile
-- [ ] 2.2 Criar componente `Footer`
+- [x] 2.2 Criar componente `Footer`
   - 3 colunas: Menu de navegação | Projetos recentes | Contato
   - Copyright na parte inferior
-- [ ] 2.3 Criar layout principal (`layout.tsx`) com Header + Footer
-- [ ] 2.4 Implementar scroll suave para navegação por âncoras
+- [x] 2.3 Criar layout principal (`layout.tsx`) com Header + Footer
+- [x] 2.4 Implementar scroll suave para navegação por âncoras
 
 ---
 
 ## Fase 3 — Página Inicial (Home)
 
 ### 3.1 Seção Hero — Carrossel
-- [ ] Carrossel fullscreen com 4-5 slides
-- [ ] Transição suave entre fotos (fade ou slide)
-- [ ] Indicadores de navegação (dots ou setas)
-- [ ] Autoplay com pausa ao hover
-- [ ] Overlay escuro sutil + texto opcional sobre as fotos
+- [x] Carrossel fullscreen com 4-5 slides
+- [x] Transição suave entre fotos (fade ou slide)
+- [x] Indicadores de navegação (dots ou setas)
+- [x] Autoplay com pausa ao hover
+- [x] Overlay escuro sutil + texto opcional sobre as fotos
 
 ### 3.2 Seção Grid de Valores
-- [ ] Grid de 3 colunas responsivo
-- [ ] Cada card: imagem de fundo + título (Funcionalidade, Estética, Bem-Estar)
-- [ ] Efeito hover (zoom suave na imagem ou overlay)
-- [ ] Responsivo: empilha em coluna no mobile
+- [x] Grid de 3 colunas responsivo
+- [x] Cada card: imagem de fundo + título (Funcionalidade, Estética, Bem-Estar)
+- [x] Efeito hover (zoom suave na imagem ou overlay)
+- [x] Responsivo: empilha em coluna no mobile
 
 ### 3.3 Seção Projetos Recentes
-- [ ] Grid de 6 projetos (3x2 desktop, 2x3 tablet, 1x6 mobile)
-- [ ] Cada card: foto de capa + nome do projeto + categoria
-- [ ] Efeito hover (reveal do nome/categoria)
-- [ ] Botão "Ver todos os projetos" → link para página Portfolio
+- [x] Grid de 6 projetos (3x2 desktop, 2x3 tablet, 1x6 mobile)
+- [x] Cada card: foto de capa + nome do projeto + categoria
+- [x] Efeito hover (reveal do nome/categoria)
+- [x] Botão "Ver todos os projetos" → link para página Portfolio
 
 ### 3.4 Seção Sobre (Resumo)
-- [ ] Layout 2 colunas: foto da Ana à esquerda, texto à direita
-- [ ] Breve bio + link "Saiba mais" → página Sobre completa
-- [ ] Animação de entrada ao scroll (fade-in)
+- [x] Layout 2 colunas: foto da Ana à esquerda, texto à direita
+- [x] Breve bio + link "Saiba mais" → página Sobre completa
+- [ ] Animação de entrada ao scroll (fade-in) — será feito na Fase 9
 
 ### 3.5 Seção Instagram
 - [ ] Grid com últimos posts do Instagram (6-8 posts)
@@ -68,19 +68,19 @@
 
 ## Fase 4 — Página Portfolio
 
-- [ ] 4.1 Grid de todos os projetos com filtro por categoria (Casa, Apartamento, Comercial, etc.)
-- [ ] 4.2 Animação de filtragem (fade in/out dos cards)
-- [ ] 4.3 Layout responsivo (3 colunas → 2 → 1)
+- [x] 4.1 Grid de todos os projetos com filtro por categoria (Casa, Apartamento, Comercial, etc.)
+- [x] 4.2 Animação de filtragem (fade in/out dos cards)
+- [x] 4.3 Layout responsivo (3 colunas → 2 → 1)
 
 ---
 
 ## Fase 5 — Página do Projeto Individual
 
-- [ ] 5.1 Foto hero de destaque (fullwidth)
-- [ ] 5.2 Título do projeto + dados (categoria, localização, metragem, ano)
-- [ ] 5.3 Descrição do projeto
-- [ ] 5.4 Galeria de fotos (grid ou lightbox)
-- [ ] 5.5 Navegação entre projetos (anterior / próximo)
+- [x] 5.1 Foto hero de destaque (fullwidth)
+- [x] 5.2 Título do projeto + dados (categoria, localização, metragem, ano)
+- [x] 5.3 Descrição do projeto
+- [x] 5.4 Galeria de fotos (grid ou lightbox)
+- [x] 5.5 Navegação entre projetos (anterior / próximo)
 
 ---
 
@@ -167,4 +167,4 @@ Fase 1 (Setup) → Fase 2 (Layout) → Fase 3 (Home) → Fase 4-5 (Portfolio)
 
 ---
 
-*Última atualização: 26/03/2026*
+*Última atualização: 27/03/2026*
